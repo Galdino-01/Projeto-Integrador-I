@@ -71,3 +71,9 @@ Os principais resultados incluem:
 
 O projeto do sistema de ponto RFID demonstrou sucesso na automação do controle de ponto. A análise dos dados revelou a eficiência do sistema e destacou áreas de melhoria para garantir registros precisos. As soluções adotadas foram eficazes para tratar anomalias e garantir a integridade dos dados.
 
+## Instruções para Rodar o Projeto
+Para rodar o projeto, siga estes passos:
+
+Navegue até o diretório do projeto com o comando cd /js.
+Instale as dependências do projeto executando npm install.
+Inicie o projeto com o comando node index.js.
