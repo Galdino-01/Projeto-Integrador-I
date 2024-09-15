@@ -15,8 +15,8 @@ export async function inserirPonto(data) {
 
     try {
         const register = {
-            name: funcionario,
-            date: dataPonto
+            nome_funcionario: funcionario,
+            data: dataPonto
         }
         await database("pontos").insert(register);
 
@@ -28,15 +28,13 @@ export async function inserirPonto(data) {
 
 export async function pegarListaDePontos() {
     try {
-        // Consulta todos os registros da tabela "pontos"
         const registros = await database("pontos").select("*");
         
-        // Exibe os registros no console para verificar
         console.log("Registros encontrados:", registros.length);
 
         return registros;
     } catch (error) {
         console.error("Erro ao buscar registros:", error);
-        throw error; // Lançar o erro novamente para que o chamador possa tratá-lo
+        throw error;
     }
 }

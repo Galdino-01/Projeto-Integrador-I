@@ -66,8 +66,8 @@ app.get('/tabela', async (req, res) => {
                 dadosFiltrados.forEach(registro => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = \`
-                        <td>\${registro.name}</td>
-                        <td>\${registro.date}</td>
+                        <td>\${registro.nome_funcionario}</td>
+                        <td>\${registro.data}</td>
                     \`;
                     tbody.appendChild(tr);
                 });
@@ -78,8 +78,8 @@ app.get('/tabela', async (req, res) => {
                 const dataFiltro = document.getElementById('data').value;
 
                 const dadosFiltrados = dados.filter(registro => {
-                    const nomeMatch = registro.name.toLowerCase().includes(nomeFiltro);
-                    const dataMatch = dataFiltro ? registro.date.startsWith(dataFiltro) : true;
+                    const nomeMatch = registro.nome_funcionario.toLowerCase().includes(nomeFiltro);
+                    const dataMatch = dataFiltro ? registro.data.startsWith(dataFiltro) : true;
                     return nomeMatch && dataMatch;
                 });
 
@@ -106,6 +106,6 @@ app.get('/tabela', async (req, res) => {
 
 export const startServer = () => {
     app.listen(port, () => {
-        console.log(`Servidor rodando em http://localhost:${port}`);
+        console.log(`Servidor rodando em http://localhost:${port}/tabela`);
     });
 }
