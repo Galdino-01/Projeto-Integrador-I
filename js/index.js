@@ -1,13 +1,16 @@
-// import { SerialPort, ReadlineParser } from "serialport"
+import { SerialPort, ReadlineParser } from "serialport";
 import { inserirPonto } from "./database/provider.js";
+import { startServer } from "./server.js";
 
-// const serialPort = new SerialPort({
-//     path: "COM3",
-//     baudRate: 9600
-// });
+startServer();
 
-// const parser = serialPort.pipe(new ReadlineParser({ delimiter: "\r\n" }));
+const serialPort = new SerialPort({
+    path: "COM3",
+    baudRate: 9600
+});
 
-// parser.on("data", (data) => {
-//     inserirPonto(data);
-// });
+const parser = serialPort.pipe(new ReadlineParser({ delimiter: "\r\n" }));
+
+parser.on("data", (data) => {
+    inserirPonto(data);
+});
